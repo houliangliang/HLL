@@ -87,38 +87,10 @@ public class MyAsync extends AsyncTask<String , Integer,String> {
 
     @Override
     protected String doInBackground(String... params) {
-        try {
+        String httpdata = httpUtils.httpdata(params[0]);
 
-            URL uu=new URL(params[0]);
 
-            HttpURLConnection httpurl= (HttpURLConnection) uu.openConnection();
-
-            httpurl.setRequestMethod("POST");
-
-            httpurl.setConnectTimeout(5000);
-
-            httpurl.setReadTimeout(5000);
-
-            if (httpurl.getResponseCode()==200)  {
-
-                InputStream inputStream = httpurl.getInputStream();
-
-                ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
-                byte by[]=new byte[1024];
-                int len=0;
-
-                while ((len=inputStream.read(by))!=-1){
-                    byteArrayOutputStream.write(by,0,len);
-                }
-                return byteArrayOutputStream.toString("utf-8");
-            }
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return null;
+        return httpdata;
     }
 
 }
