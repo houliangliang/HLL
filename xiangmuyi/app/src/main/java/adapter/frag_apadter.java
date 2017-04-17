@@ -15,6 +15,7 @@ import Bean.phone;
 
 /**
  * date: 2017/4/9
+ * 类用途：侧滑页面适配
  * author:侯亮亮候亮亮
  */
 

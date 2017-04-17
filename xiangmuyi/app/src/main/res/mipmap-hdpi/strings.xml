@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Gaofangjinritoutiao</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="qingshuru">请输入手机号</string>
+    <string name="xiayibu">下一步</string>
+    <string name="yixiangshouji">已向手机</string>
+    <string name="fasongyanzhengma">发送验证码</string>
+    <string name="qingshuruyanzhengma">请输入验证码</string>
+    <string name="qingshurumima">请输入密码</string>
+    <string name="chongxinfasong">重新发送56</string>
+</resources>

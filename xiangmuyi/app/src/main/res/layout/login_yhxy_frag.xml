@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/rela"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <ImageView
+            android:id="@+id/login_im_fanhui3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@mipmap/afw"/>
+        <TextView
+            android:id="@+id/login_top"
+            android:text="今日头条用户协议"
+            android:textSize="17sp"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#a0a0a0"
+            android:layout_alignParentBottom="true"/>
+        <TextView
+            android:layout_alignParentRight="true"
+            android:id="@+id/denglu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/a8l"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:textSize="20dp"/>
+    </RelativeLayout>
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/yh_pb"
+        style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_below="@id/rela"
+        android:visibility="gone"/>
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/yh_wv"
+        android:layout_below="@id/yh_pb"></WebView>
+
+
+</RelativeLayout>

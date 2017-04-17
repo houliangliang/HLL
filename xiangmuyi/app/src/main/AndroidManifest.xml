@@ -1,20 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.my">
-<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+
     <application
         android:allowBackup="true"
+        android:name=".MyApp"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Main2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivityaddtitle" android:launchMode="singleInstance">
+        </activity>
+        <activity android:name=".MainActivityphonelogin" android:launchMode="singleInstance">
+        </activity>
+        <activity android:name=".MainActivity_loginshouye" android:launchMode="singleInstance"></activity>
+        <activity android:name=".MainActivity" android:launchMode="singleInstance"></activity>
+        <activity android:name=".ManiActivity_shoujidenglv" android:launchMode="singleInstance"></activity>
+        <activity android:name=".ManiActivity_phonezhuce" android:launchMode="singleInstance"></activity>
+        <activity android:name=".Mainactivity2" android:launchMode="singleInstance"></activity>
+        <activity android:name=".DengluologActivity" ></activity>
+        <activity android:name=".activity_xieyi" android:launchMode="singleInstance"></activity>
     </application>
 
 </manifest>

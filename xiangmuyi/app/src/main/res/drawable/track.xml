@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    中间滑动圆形的改变
+    <item android:state_checked="true"  android:drawable="@drawable/colse" />
+    <item                               android:drawable="@drawable/kai" />
+</selector>

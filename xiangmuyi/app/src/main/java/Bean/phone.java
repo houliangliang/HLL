@@ -1,9 +1,10 @@
 package Bean;
 
 /**
- * date: 2017/4/9
- * author:侯亮亮候亮亮
- */
+*作者:侯亮亮
+*时间:2017/4/13 20:46
+*类描述:获取侧滑数据的Bean对象
+*/
 
 public class phone {
 

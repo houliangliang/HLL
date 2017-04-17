@@ -1,56 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-    android:background="@color/gray_cc">
+              android:orientation="vertical"
+   >
+  <RelativeLayout
+      android:id="@+id/ce_relalayout_login"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="3.5"
+      android:visibility="gone"
+      >
+      <view.CircleImageView
+          android:id="@+id/ce_cle_im"
+          android:layout_width="70dp"
+          android:layout_height="70dp"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="40dp"
+          android:background="@mipmap/big_defaulthead_head"></view.CircleImageView>
 
+     <TextView
+         android:id="@+id/name"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginLeft="130dp"
+         android:layout_marginTop="10dp"
+         android:text="asdadsda"
+         android:textSize="20sp"
+         />
+      <Button
+          android:layout_width="wrap_content"
+          android:layout_height="30dp"
+          android:background="@drawable/but_biankuang2"
+          android:layout_marginLeft="130dp"
+          android:layout_marginTop="10dp"
+          android:text="消息"
+          android:layout_below="@id/name"/>
+  </RelativeLayout>
 
-    <TextView
-        android:text="@string/log"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/weibo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="17dp"
-        android:textColor="@color/white"
-        android:id="@+id/frag1_log"/>
+    <RelativeLayout
+        android:id="@+id/cehua_relalayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3.5"
 
-    <ListView
-    android:id="@+id/frag1_lv"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_below="@+id/frag1_log"
-        android:layout_marginBottom="70dp"></ListView>
-
+        >
     <TextView
         android:id="@+id/weibo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@mipmap/ic_drawer_weibo"
+        android:background="@mipmap/ic_qq_login_normal"
         android:layout_alignBaseline="@+id/tence"
         android:layout_alignBottom="@+id/tence"
         android:layout_centerHorizontal="true"/>
 
-    <TextView
-        android:id="@+id/qq"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/ic_drawer_qzone"
-        android:layout_marginStart="25dp"
-        android:layout_above="@+id/frag1_log"
-        android:layout_alignStart="@+id/frag1_log"
-
-        />
 
     <TextView
         android:id="@+id/tence"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@mipmap/ic_drawer_tencent"
-        android:layout_marginTop="36dp"
+        android:background="@mipmap/ic_weibo_login_normal"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="30dp"
         android:layout_alignParentTop="true"
-        android:layout_alignEnd="@+id/frag1_log"
-        android:layout_marginEnd="22dp"/>
+        android:layout_alignParentEnd="true"/>
 
+        <TextView
+            android:id="@+id/qq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/cellphone_leftdrawer_normal"
+            android:layout_marginStart="30dp"
 
-</RelativeLayout>
+            android:layout_alignBaseline="@+id/weibo"
+            android:layout_alignBottom="@+id/weibo"
+            android:layout_alignParentStart="true"/>
+
+        <Button
+
+            android:text="@string/log"
+            android:layout_width="100dp"
+            android:layout_height="22dp"
+            android:background="@drawable/but_biankuang3"
+            android:id="@+id/frag1_log"
+            android:textSize="11sp"
+            android:layout_marginStart="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:layout_toStartOf="@+id/weibo"/>
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/frag1_lv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@+id/frag1_log"
+        android:layout_weight="13"
+        ></ListView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#a0a0a0"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:paddingTop="20dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@mipmap/downloadicon_leftdrawer_normal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="离线下载"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/Linear_yejian"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:paddingTop="20dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/nighticon_leftdrawer_normal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="夜间模式"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:paddingTop="20dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/settingicon_leftdrawer_normal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="设置"/>
+    </LinearLayout>
+</LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>

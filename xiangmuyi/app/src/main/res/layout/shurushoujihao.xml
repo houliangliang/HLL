@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <ImageView
+            android:id="@+id/login_iv_wj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@mipmap/afw"/>
+        <TextView
+            android:id="@+id/login_top"
+            android:text="找回密码"
+            android:textSize="17sp"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#a0a0a0"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:digits="0123456789"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:background="@null"
+            android:layout_marginTop="50dp"
+            android:id="@+id/shoujihaoed"
+            android:hint="@string/qingshuru"
+            android:textColor="#a0a0a0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_marginRight="5dp"
+            android:textSize="18sp"
+            android:layout_toLeftOf="@id/shoujihaoed"
+            android:layout_alignBottom="@id/shoujihaoed"
+            android:text="+86"
+            android:id="@+id/haomatou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/qingkong"
+            android:layout_marginRight="2dp"
+            android:src="@mipmap/add_channels_close_small"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_above="@+id/viewa"
+            android:layout_alignEnd="@+id/viewa" />
+        <View
+            android:id="@+id/viewa"
+            android:layout_marginTop="2dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/shoujihaoed"
+            android:background="#919191"
+            android:layout_width="180dp"
+            android:layout_height="1dp"/>
+
+        <Button
+            android:background="@drawable/shap"
+            android:textSize="13sp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/viewa"
+            android:layout_centerHorizontal="true"
+            android:text="@string/xiayibu"
+            android:id="@+id/buttxyba"
+            android:layout_width="150dp"
+            android:layout_height="40dp" />
+
+
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

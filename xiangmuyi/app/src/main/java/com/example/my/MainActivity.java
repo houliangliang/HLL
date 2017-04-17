@@ -1,71 +1,126 @@
 package com.example.my;
 
 import android.app.Activity;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
+import android.content.Intent;
+
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.view.WindowManager;
-import android.widget.ListView;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import cn.smssdk.EventHandler;
+import cn.smssdk.SMSSDK;
 
 
-import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+public class MainActivity extends Activity implements View.OnClickListener {
 
-import Utils.MyAsync;
-import Utils.URL;
-import fragment.TestFragment;
-
-
-public class MainActivity extends FragmentActivity {
-
-    private Fragment mContent;
+    private Button buttxiayibu;
+    private EditText shoujihao;
+    private String shouji;
+//    Handler handler = new Handler() {
+//        @Override
+//        public void handleMessage(Message msg) {
+//            super.handleMessage(msg);
+//            if (msg.what == 1)
+//                Toast.makeText(MainActivity.this, "回调完成", Toast.LENGTH_SHORT).show();
+//            else if (msg.what == 2)
+//                Toast.makeText(MainActivity.this, "提交验证码成功", Toast.LENGTH_SHORT).show();
+//            else if (msg.what == 3)
+//                Toast.makeText(MainActivity.this, "获取验证码成功", Toast.LENGTH_SHORT).show();
+//            else if (msg.what == 4)
+//                Toast.makeText(MainActivity.this, "返回支持发送国家验证码", Toast.LENGTH_SHORT).show();
+//        }
+//    };
+    private ImageView dianjiqingkong;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.shurushoujihao);
 
+        //查找控件
         initview();
-        initSlidingMenu();
+
 
     }
+
 
     private void initview() {
-        ListView lv= (ListView) findViewById(R.id.lv);
-        MyAsync myAsync = new MyAsync(lv, this);
-        myAsync.execute(URL.url);
-    }
-    private void initSlidingMenu() {
-        SlidingMenu menu = new SlidingMenu(this);
-        //设置左滑菜单
-        menu.setMode(SlidingMenu.LEFT);
-        // 设置触摸屏幕的模式
-          //设置要使菜单滑动，触碰屏幕的范围
-        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
-        //设置阴影图片的宽度
-//        menu.setShadowWidthRes(R.dimen.shadow_width);
-        //设置阴影图片
-//        menu.setShadowDrawable(R.color.colorAccent);
-        // 设置滑动菜单视图的宽度
-        //计算屏幕的宽度占屏幕的80%设置SlidingMenu菜单的宽度
-        WindowManager wm = getWindowManager();
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        wm.getDefaultDisplay().getMetrics(displayMetrics);
-        float widthPixels = (float) displayMetrics.widthPixels;
-        double v = (int) widthPixels * 0.8;
-        menu.setBehindWidth((int)v);
-        // 设置渐入渐出效果的值
-        menu.setFadeDegree(0.35f);
-       //使SlidingMenu附加在Activity上
-        menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
-        //为侧滑菜单设置布局
-        menu.setMenu(R.layout.menu_frame_left);
-        //使用fragment做为侧滑页面
-        FragmentManager manager = getSupportFragmentManager();
-        //这里的R.id.id_left_menu_frame
-        manager.beginTransaction().replace(R.id.id_left_menu_frame, new TestFragment()).commit();
+        dianjiqingkong = (ImageView) findViewById(R.id.qingkong);
+        buttxiayibu = (Button) findViewById(R.id.buttxyba);
+        shoujihao = (EditText) findViewById(R.id.shoujihaoed);
 
+        //当前edittext获取焦点时  弹出数字键盘
+        shoujihao.setInputType(EditorInfo.TYPE_CLASS_PHONE);
+        buttxiayibu.setOnClickListener(this);
+        dianjiqingkong.setOnClickListener(this);
+        shouji = shoujihao.getText().toString();
     }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.buttxyba:
+                if(TextUtils.isEmpty(shoujihao.getText())){
+                    Toast.makeText(MainActivity.this,"手机号不能为空",Toast.LENGTH_SHORT).show();
+                }else if(shoujihao.length()!=11){
+                    Toast.makeText(MainActivity.this,"手机号是11位",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this,shoujihao.getText().toString(),Toast.LENGTH_SHORT).show();
+
+                } else{
+                    Intent intent = new Intent(MainActivity.this,Mainactivity2.class);
+                    intent.putExtra("dianhua",shoujihao.getText().toString());
+//                    huidiao(shoujihao.getText().toString());
+                    startActivity(intent);
+
+                    finish();
+                }
+
+
+                break;
+
+            case R.id.qingkong:
+                //点击清空edittext内容
+                shoujihao.getText().clear();
+                Toast.makeText(MainActivity.this,"请重新输入",Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
+//    private void huidiao(String phone ) {
+//        EventHandler eh = new EventHandler() {
+//            @Override
+//            public void afterEvent(int event, int result, Object data) {
+//                if (result == SMSSDK.RESULT_COMPLETE) {
+//                    handler.sendEmptyMessage(1);
+//                    //回调完成
+//                    if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
+//                        //提交验证码成功
+//                        handler.sendEmptyMessage(2);
+//
+//                    } else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
+//                        //获取验证码成功
+//                        handler.sendEmptyMessage(3);
+//
+//                    } else if (event == SMSSDK.EVENT_GET_SUPPORTED_COUNTRIES) {
+//                        //返回支持发送验证码的国家列表
+//                        handler.sendEmptyMessage(4);
+//                    }
+//                } else {
+//                    ((Throwable) data).printStackTrace();
+//                }
+//            }
+//        };
+//        SMSSDK.initSDK(this, "1cf7513f0d15c", " ab4953e62b52c51a518f4f9741b14ff5");
+//        SMSSDK.registerEventHandler(eh); //注册短信回调
+//
+//        SMSSDK.getVerificationCode("86", phone);//请求获取短信验证码
+//    }
+
 }
